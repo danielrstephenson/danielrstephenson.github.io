@@ -1,0 +1,52 @@
+/*
+    Insert a client into the clients table
+*/
+INSERT INTO clients (clientFirstname, clientLastname, clientEmail, clientPassword, clientLevel, comment) Values ('Tony', 'Stark', 'tony@starkent.com', ' Iam1ronM@n', 1, 'I am the real Ironman');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+    update a clients user level
+*/
+UPDATE clients SET clientLevel = 3 WHERE clientId = 1;
+
+/*
+    update a record using the replace function
+*/
+UPDATE phpmotors.inventory 
+	SET invDescription = replace(invDescription, 
+    'small interiors',
+    'spacious interiors')
+    WHERE invId = 12;
+
+/*
+    use inner join
+*/
+SELECT invModel, c.classificationName
+FROM inventory i
+INNER JOIN carclassification c ON i.classificationId = c.classificationId
+WHERE i.classificationId = 1;
+
+/*
+    delete a record from the inventory table
+*/
+DELETE FROM inventory WHERE invId = 1;
+
+/*
+    append string to path
+*/
+UPDATE inventory SET invImage=concat('/phpmotors',invImage), invThumbnail=concat('/phpmotors', invThumbnail);
+
